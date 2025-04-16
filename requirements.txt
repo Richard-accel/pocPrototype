@@ -6,4 +6,3 @@ geopandas
 sqlalchemy
 keplergl
 flask
-python-dotenv
