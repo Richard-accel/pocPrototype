@@ -6,3 +6,4 @@ geopandas
 sqlalchemy
 keplergl
 flask
+psycopg2-binary
