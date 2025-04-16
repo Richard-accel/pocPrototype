@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+plotly
+geopandas
+sqlalchemy
+keplergl
+flask
+python-dotenv

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID-19 Dashboard</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>COVID-19 Malaysia - {{ today }}</h1>
+        <div class="stats">
+            <p><strong>New Cases:</strong> {{ new_cases }}</p>
+            <p><strong>Hospitalized:</strong> {{ hospitalized }}</p>
+            <p><strong>Discharged:</strong> {{ discharged }}</p>
+            <p><strong>Deaths:</strong> {{ deaths }}</p>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <!-- Map and Charts Side-by-Side -->
+        <div id="map-and-charts">
+            <!-- Left: Map -->
+            <div id="map-container">
+                <iframe id="mapFrame" src="/empty_map" style="height: 400px;width:800px"></iframe>
+
+                <!-- Buttons directly below map -->
+                <div id="button-container">
+                    <button onclick="refreshMap()">Refresh Map</button>
+                    <button onclick="showClinics()">Show Clinics Only</button>
+                    <button onclick="showCovid()">Covid Disease</button>
+                </div>
+            </div>
+
+            <!-- Right: Charts -->
+            <div id="charts-container">
+                <div class="chart-block">
+                    {{ line_chart | safe }}
+                </div>
+                <div class="chart-block">
+                    {{ bar_chart | safe }}
+                </div>
+                <div class="chart-block">
+                    {{ state_chart | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function refreshMap() {
+            document.getElementById("mapFrame").src = "/empty_map?" + new Date().getTime();
+        }
+
+        function showClinics() {
+            document.getElementById("mapFrame").src = "/map/clinic?" + new Date().getTime();
+        }
+        function showCovid() {
+            document.getElementById("mapFrame").src = "/map/covid?" + new Date().getTime();
+        }
+    </script>
+
+</body>
+</html>
