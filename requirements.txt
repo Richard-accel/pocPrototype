@@ -1,9 +1,10 @@
 fastapi
-uvicorn
+uvicorn[standard]
+jinja2
 pandas
 plotly
 geopandas
 sqlalchemy
+psycopg2-binary
 keplergl
 flask
-psycopg2-binary
